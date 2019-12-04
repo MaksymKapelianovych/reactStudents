@@ -55,6 +55,11 @@ export const getStudent = studentId => {
   return student;
 };
 
+export const checkStudentId = studentId => {
+  const student = students.find(s => s.id === studentId);
+  return !!student;
+};
+
 export const addStudent = student => {
   const extendedStudent = {
     ...student,

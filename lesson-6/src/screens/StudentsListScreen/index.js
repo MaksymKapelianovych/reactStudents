@@ -8,10 +8,13 @@ import {
   ListSubheader,
   Fab,
   makeStyles,
+  IconButton,
+  ListItemSecondaryAction,
 } from '@material-ui/core';
-import {Add as AddIcon} from '@material-ui/icons';
+import {Add as AddIcon, DeleteForever} from '@material-ui/icons';
 import StudentsList from '../common/StudentsList';
 import {Link} from 'react-router-dom';
+
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -46,6 +49,15 @@ export default () => {
                   primary={student.name}
                   secondary={student.address}
                 />
+                <ListItemSecondaryAction>
+                   <IconButton aria-label="Delete Todo"
+                                component={Link}
+                                to={`/students/delete/${student.id}`}
+                                color="default"
+                                variant="outlined">
+                          <DeleteForever />
+                      </IconButton>
+                  </ListItemSecondaryAction>
               </ListItem>
             ))
           }
